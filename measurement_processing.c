@@ -12,9 +12,9 @@ double model(double *radioactivity, double *time, int N, double point) {
 
 double nonlinear_equation(double *radioactivity, double *time, int N, double precision) {
     double left = precision;
-    double right = 10.0;
+    double right = precision;
 
-    while (model(radioactivity, time, N, right) < 0){
+    while (model(radioactivity, time, N, right) > 0){
         right *= 2;
     }
 
@@ -23,7 +23,7 @@ double nonlinear_equation(double *radioactivity, double *time, int N, double pre
         decay_time = (left + right) / 2.0;
         fc = model(radioactivity, time, N, decay_time);
         
-        if (fc < 0) {
+        if (fc > 0) {
             left = decay_time;
         } else {
             right = decay_time;

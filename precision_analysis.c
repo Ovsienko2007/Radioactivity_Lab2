@@ -34,7 +34,6 @@ double dev_exp(double *radioactivity, double *time, int M, double decay_time)
     }
     deviation1 = sqrt(sum_residuals1) / M;
     return deviation1;
-
 }
 
 double dev_linear(double *radioactivity, double *time, int M, double decay_rate)

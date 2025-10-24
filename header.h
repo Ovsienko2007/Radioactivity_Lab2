@@ -6,6 +6,8 @@
 #include <math.h>
 #include <time.h>
 
+static const int maxN = 100;
+
 int experiment(double* radioactivity, double* time_arr, double start_time, double end_time, double step, const int beta);
 void add_noise(double* radioactivity, int N);
 
