@@ -8,7 +8,7 @@
 
 static const int maxN = 100;
 
-int experiment(double* radioactivity, double* time_arr, double start_time, double end_time, double step, const int beta);
+int experiment(double* radioactivity, double* time_arr, double start_time, double end_time, double step, double beta);
 void add_noise(double* radioactivity, int N);
 
 double model(double *radioactivity, double *time, int N, double point);

@@ -5,6 +5,8 @@ EXECUTABLE_NAME = main.exe
 
 BUILDDIR = Build
 
+TESTS   = $(wildcard Tests/*)
+
 SOURCES   = $(wildcard *.c)
 OBJECTS   = $(patsubst %.c, %.o, $(SOURCES))
 
@@ -19,7 +21,7 @@ print_start:
 #____________________________MAIN________________________________
 $(EXECUTABLE_NAME): $(OBJECTS)
 	@$(CC) $(addprefix ./$(BUILDDIR)/, $(OBJECTS)) -o ./$(BUILDDIR)/$(EXECUTABLE_NAME) $(CFLAGS)
-	@echo All files were compilated
+	@echo All files were compilated!
 
 $(OBJECTS): %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o ./$(BUILDDIR)/$@
@@ -31,6 +33,15 @@ make_folder:
 
 start:
 	@./$(BUILDDIR)/$(EXECUTABLE_NAME)
+
+start_tests:
+	@for test in $(TESTS); do \
+		echo "=== Running test: $$test ==="; \
+		./$(BUILDDIR)/$(EXECUTABLE_NAME) < $$test; \
+		echo "=== Test $$test finished ==="; \
+		echo ""; \
+	done
+	@echo All tests were completed!
 
 #_________________________CLEAN_________________________________
 clean:

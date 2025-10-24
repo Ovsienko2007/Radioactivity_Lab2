@@ -2,22 +2,19 @@
 
 
 int main() {
-    double const start_time =  0.0;
-    double const end_time =  9.9;
-    double const step =  0.1;
+    double start_time, end_time, step;
+    double precision, betta;
+    double interval1, interval2;
 
-    double const precision = 0.001;
-    double const betta = 3.0;
-
-    double const interval1 = 0.2;
-    double const interval2 = 8.2;
+    scanf("%lf%lf%lf", &start_time, &end_time, &step);
+    scanf("%lf%lf", &precision, &betta);
+    scanf("%lf%lf", &interval1, &interval2);
 
     double radioactivity[maxN];
     double time[maxN];
 
     printf("Inicialisation complited\n");
 
-    //Подготовка данных
     int N = experiment(radioactivity, time, start_time, end_time, step, betta);
     add_noise(radioactivity, N);
     printf("Data was generated\n");

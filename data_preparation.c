@@ -1,6 +1,6 @@
 #include "header.h"
 
-int experiment(double* radioactivity, double* time_arr, double start_time, double end_time, double step, const int beta) {
+int experiment(double* radioactivity, double* time_arr, double start_time, double end_time, double step, double beta) {
     int count = 0;
     int N = floor((end_time - start_time) / step);
 
@@ -9,6 +9,7 @@ int experiment(double* radioactivity, double* time_arr, double start_time, doubl
         double exact_value = exp(-time_arr[count] / beta);
         radioactivity[count] = exact_value;
     }
+    
     return N;
 }
 
