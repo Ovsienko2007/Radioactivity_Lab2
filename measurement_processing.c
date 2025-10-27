@@ -12,7 +12,7 @@ double model(double *radioactivity, double *time, int N, double point) {
 
 double nonlinear_equation(double *radioactivity, double *time, int N, double precision) {
     double left = precision;
-    double right = precision;
+    double right = 1;
     double decay_time = left, fc;
 
     while (model(radioactivity, time, N, right) > 0){
