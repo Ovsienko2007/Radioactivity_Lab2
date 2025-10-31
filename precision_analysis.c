@@ -32,7 +32,7 @@ double dev_exp(double *radioactivity, double *time, int M, double decay_time)
     {
         sum_residuals1 += pow((radioactivity[i] - exp(-time[i] / decay_time)), 2);
     }
-    deviation1 = sqrt(sum_residuals1) / M;
+    deviation1 = sqrt(sum_residuals1 / M);
     return deviation1;
 }
 
@@ -44,6 +44,6 @@ double dev_linear(double *radioactivity, double *time, int M, double decay_rate)
     {
         sum_residuals2 += pow((radioactivity[i] - 1 + time[i] / decay_rate), 2);
     }
-    deviation2 = sqrt(sum_residuals2) / M;
+    deviation2 = sqrt(sum_residuals2 / M);
     return deviation2;
 }
