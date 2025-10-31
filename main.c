@@ -31,6 +31,6 @@ int main() {
 
     printf("%.4lf +- %.4lf\n", decay_time, decay_time_div);
     printf("%.4lf +- %.4lf\n", decay_rate, decay_rate_div);
-    printf("%lg\n", time_start);
+    printf("%.3f\n", time_start);
     return 0;
 }
